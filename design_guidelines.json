@@ -1,0 +1,161 @@
+{
+  "typography": {
+    "font_family": {
+      "sans": ["Inter", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    },
+    "headings": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight text-slate-100",
+      "h2": "text-3xl md:text-4xl font-semibold tracking-tight text-slate-100",
+      "h3": "text-2xl font-semibold tracking-tight text-slate-100",
+      "h4": "text-xl font-medium text-slate-200"
+    },
+    "body": {
+      "base": "text-base text-slate-400 leading-relaxed",
+      "small": "text-sm text-slate-500",
+      "large": "text-lg text-slate-300 font-medium"
+    }
+  },
+  "colors": {
+    "theme": "dark",
+    "palette": {
+      "background": "222 47% 11%",
+      "foreground": "210 40% 98%",
+      "card": "215 32% 17%",
+      "card_foreground": "210 40% 98%",
+      "popover": "215 32% 17%",
+      "popover_foreground": "210 40% 98%",
+      "primary": "217 91% 60%",
+      "primary_foreground": "210 40% 98%",
+      "secondary": "215 25% 27%",
+      "secondary_foreground": "210 40% 98%",
+      "muted": "215 25% 27%",
+      "muted_foreground": "215 16% 47%",
+      "accent": "215 25% 27%",
+      "accent_foreground": "210 40% 98%",
+      "destructive": "0 84% 60%",
+      "destructive_foreground": "210 40% 98%",
+      "border": "215 25% 27%",
+      "input": "215 25% 27%",
+      "ring": "217 91% 60%",
+      "chart_1": "217 91% 60%",
+      "chart_2": "142 71% 45%",
+      "chart_3": "38 92% 50%",
+      "chart_4": "0 84% 60%",
+      "chart_5": "215 25% 27%"
+    },
+    "semantic": {
+      "bg_main": "#0f172a",
+      "bg_card": "#1e293b",
+      "bg_hover": "#334155",
+      "primary": "#3b82f6",
+      "success": "#10b981",
+      "warning": "#f59e0b",
+      "danger": "#ef4444",
+      "text_primary": "#f1f5f9",
+      "text_secondary": "#94a3b8",
+      "text_dim": "#475569"
+    }
+  },
+  "layout": {
+    "spacing": {
+      "container_padding": "p-4 md:p-8 lg:p-12",
+      "section_gap": "gap-8",
+      "component_gap": "gap-4"
+    },
+    "grid_strategy": {
+      "dashboard": "grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]",
+      "card_stats": "col-span-1 md:col-span-3 row-span-1",
+      "card_main": "col-span-1 md:col-span-6 row-span-2",
+      "card_side": "col-span-1 md:col-span-3 row-span-2"
+    },
+    "containers": {
+      "card": "bg-slate-800 rounded-xl shadow-lg border border-slate-700/50 hover:border-slate-600 transition-colors",
+      "sidebar": "fixed left-0 top-0 h-full w-64 bg-slate-900 border-r border-slate-800 hidden md:flex flex-col",
+      "mobile_nav": "fixed bottom-0 left-0 w-full bg-slate-900 border-t border-slate-800 flex justify-around p-4 md:hidden z-50"
+    }
+  },
+  "components": {
+    "buttons": {
+      "default": "rounded-lg font-medium transition-all active:scale-95",
+      "primary": "bg-blue-500 hover:bg-blue-600 text-white shadow-md hover:shadow-lg hover:shadow-blue-500/20",
+      "ghost": "hover:bg-slate-700 text-slate-300 hover:text-white"
+    },
+    "inputs": {
+      "default": "bg-slate-900 border-slate-700 focus:border-blue-500 focus:ring-blue-500/20 rounded-lg text-slate-100 placeholder:text-slate-500"
+    },
+    "cards": {
+      "base": "bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-700/50"
+    },
+    "charts": {
+      "library": "recharts",
+      "style": "minimal",
+      "tooltip": "bg-slate-900 border-slate-700 text-slate-100"
+    }
+  },
+  "motion": {
+    "page_transition": {
+      "initial": { "opacity": 0, "y": 10 },
+      "animate": { "opacity": 1, "y": 0 },
+      "exit": { "opacity": 0, "y": -10 },
+      "transition": { "duration": 0.3, "ease": "easeOut" }
+    },
+    "hover_card": "hover:-translate-y-1 transition-transform duration-300",
+    "list_item": {
+      "initial": { "opacity": 0, "x": -20 },
+      "animate": { "opacity": 1, "x": 0 },
+      "exit": { "opacity": 0, "x": 20 }
+    }
+  },
+  "images": {
+    "empty_state_dashboard": {
+      "url": "https://images.unsplash.com/photo-1702539336564-b37d0f3276e7?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Abstract Blue Wavy Background",
+      "category": "background",
+      "description": "Subtle abstract background for empty states or dashboard headers."
+    },
+    "success_state": {
+      "url": "https://images.unsplash.com/photo-1692035072849-93a511f35b2c?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "alt": "Abstract Sphere Success",
+      "category": "illustration",
+      "description": "Use for success messages or completion milestones."
+    }
+  },
+  "accessibility": {
+    "contrast": "Text colors must maintain 4.5:1 ratio against background. Use slate-400 for secondary text, never darker.",
+    "focus_states": "Visible focus rings (blue-500) for keyboard navigation.",
+    "aria_labels": "All icon-only buttons must have aria-label."
+  },
+  "universal_guidelines": {
+    "general": [
+      "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+      "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+      "Create depth through layered design elements with z-index hierarchy.",
+      "Use glass-morphism effects with backdrop filters (12-24px blur) for overlays.",
+      "You MUST NOT apply universal transition (transition: all).",
+      "You MUST NOT center align the app container.",
+      "Always use modern button styles like pill-shaped, or sharp button with interaction animations.",
+      "NEVER use AI assistant Emoji characters like 🤖, 🧠, etc.",
+      "Every interaction needs micro-animations - hover states, transitions.",
+      "Use 2-3x more spacing than feels comfortable.",
+      "Prioritize using pre-existing components from src/components/ui.",
+      "Components MUST use named exports.",
+      "Pages MUST use default exports.",
+      "Use sonner for toasts."
+    ],
+    "testing": [
+      "All interactive elements MUST include data-testid attribute.",
+      "Format: kebab-case, role-based (e.g., login-submit-button)."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. Update /app/frontend/src/index.css with the HSL values provided in 'colors.palette'. This is CRITICAL for the dark theme.",
+    "2. Ensure 'tailwind.config.js' extends the theme to include these CSS variables if not already present.",
+    "3. Implement the Dashboard using the Bento Grid strategy defined in 'layout.grid_strategy'.",
+    "4. Use 'lucide-react' for icons.",
+    "5. Use 'recharts' for the Completion Ring Chart.",
+    "6. Build the 'Sidebar' for desktop and 'BottomNav' for mobile as separate components.",
+    "7. For the 'TasksPage', implement a filterable list with 'AnimatePresence' for smooth entry/exit.",
+    "8. Use the provided image URLs for empty states (e.g., when no tasks are present)."
+  ]
+}
