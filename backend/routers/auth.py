@@ -239,17 +239,32 @@ async def refresh_token(request: RefreshTokenRequest):
 
 @router.post("/logout", status_code=status.HTTP_204_NO_CONTENT)
 async def logout(
-    request: RefreshTokenRequest,
+    request: RefreshTokenRequest = None,
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
     """Logout and revoke refresh token"""
     db = get_db()
     
-    token_hash = hashlib.sha256(request.refresh_token.encode()).hexdigest()
-    await db.refresh_tokens.update_one(
-        {"token_hash": token_hash},
-        {"$set": {"is_revoked": True}}
-    )
+    # Verify the access token to get user_id
+    payload = verify_token(credentials.credentials)
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    
+    user_id = payload.get("sub")
+    
+    # If refresh token provided, revoke it
+    if request and request.refresh_token:
+        token_hash = hashlib.sha256(request.refresh_token.encode()).hexdigest()
+        await db.refresh_tokens.update_one(
+            {"token_hash": token_hash, "user_id": user_id},
+            {"$set": {"is_revoked": True}}
+        )
+    else:
+        # Revoke all refresh tokens for this user
+        await db.refresh_tokens.update_many(
+            {"user_id": user_id},
+            {"$set": {"is_revoked": True}}
+        )
     
     return None
 
