@@ -42,7 +42,7 @@ The login page provides a clean, professional interface for user authentication.
 - "Create one" link for new users
 - Demo credentials displayed for easy testing
 
-![Login Page](./screenshots/01_login_page.png)
+![Login Page](./screenshots/01_login_page.jpg)
 
 **URL:** `/login`
 
@@ -68,7 +68,7 @@ The registration page allows new users to create accounts with validation.
 - "Create Account" primary button
 - Link to existing login page
 
-![Register Page](./screenshots/02_register_page.png)
+![Register Page](./screenshots/02_register_page.jpg)
 
 **URL:** `/register`
 
@@ -90,7 +90,7 @@ Password reset functionality using email-based OTP verification.
 - Link back to login page
 - Clean, focused layout for password recovery
 
-![Forgot Password Page](./screenshots/03_forgot_password_page.png)
+![Forgot Password Page](./screenshots/03_forgot_password_page.jpg)
 
 **URL:** `/forgot-password`
 
@@ -117,7 +117,7 @@ The main dashboard provides a comprehensive overview of all tasks and productivi
 - **Top Search Bar:** Global task search functionality
 - **User Menu:** Profile avatar with notification bell
 
-![Dashboard Page](./screenshots/04_dashboard_page.png)
+![Dashboard Page](./screenshots/04_dashboard_page.jpg)
 
 **URL:** `/dashboard`
 
@@ -149,7 +149,7 @@ The full task list with advanced filtering, sorting, and search capabilities.
   - Pinned indicator (pin icon)
   - Actions menu (three dots)
 
-![Tasks Page](./screenshots/05_tasks_page.png)
+![Tasks Page](./screenshots/05_tasks_page.jpg)
 
 **URL:** `/tasks`
 
@@ -186,7 +186,7 @@ User profile management with statistics and account settings.
   - "Save Changes" button
 - **Password Change Section:** (visible when scrolled)
 
-![Profile Page](./screenshots/07_profile_page.png)
+![Profile Page](./screenshots/07_profile_page.jpg)
 
 **URL:** `/profile`
 
@@ -214,7 +214,7 @@ The modal dialog for creating new tasks with all required fields.
 - **Pin Task Toggle:** Switch to pin important tasks
 - **Action Buttons:** Cancel and "Add Task" buttons
 
-![Add Task Modal](./screenshots/06_add_task_modal.png)
+![Add Task Modal](./screenshots/06_add_task_modal.jpg)
 
 **Modal Overlay:** Semi-transparent dark backdrop with centered modal card
 
@@ -241,7 +241,7 @@ The filtering system with dropdown menus for precise task filtering.
 - **Date Filter:** All Dates, Today, This Week, Overdue
 - **Sort Options:** Created Date, Due Date, Priority, Title (ascending/descending)
 
-![Task Filters](./screenshots/11_task_filters.png)
+![Task Filters](./screenshots/11_task_filters.jpg)
 
 **Filter Dropdown Open State:** Shows all available options with checkmark on selected item
 
@@ -257,7 +257,7 @@ Global search across task titles and descriptions.
 - **Search Indicator:** Search icon in the input field
 - **Clear Search:** X button to clear search (when text present)
 
-![Search Tasks](./screenshots/12_search_tasks.png)
+![Search Tasks](./screenshots/12_search_tasks.jpg)
 
 **Search Behavior:**
 - Case-insensitive matching
@@ -279,7 +279,7 @@ The application is fully responsive with optimized layouts for mobile devices.
 - Full-width sign-in button
 - Demo credentials easily visible
 
-![Mobile Login](./screenshots/13_mobile_login.png)
+![Mobile Login](./screenshots/13_mobile_login.jpg)
 
 **Viewport:** 375px × 812px (iPhone X)
 
@@ -294,7 +294,7 @@ The application is fully responsive with optimized layouts for mobile devices.
 - **Progress Chart:** Responsive donut chart
 - **Bottom Navigation Bar:** Home, Tasks, Add (FAB), Notifications, Profile
 
-![Mobile Dashboard](./screenshots/09_mobile_dashboard.png)
+![Mobile Dashboard](./screenshots/09_mobile_dashboard.jpg)
 
 **Viewport:** 375px × 812px (iPhone X)
 
@@ -318,7 +318,7 @@ The application is fully responsive with optimized layouts for mobile devices.
 - **Task Cards:** Full-width cards with all info
 - **Bottom Navigation:** Persistent navigation bar
 
-![Mobile Tasks](./screenshots/10_mobile_tasks.png)
+![Mobile Tasks](./screenshots/10_mobile_tasks.jpg)
 
 **Viewport:** 375px × 812px (iPhone X)
 
@@ -339,7 +339,7 @@ The application is fully responsive with optimized layouts for mobile devices.
 - **Stacked Form Fields:** Full-width inputs
 - **Bottom Navigation:** Consistent navigation
 
-![Mobile Profile](./screenshots/14_mobile_profile.png)
+![Mobile Profile](./screenshots/14_mobile_profile.jpg)
 
 **Viewport:** 375px × 812px (iPhone X)
 
