@@ -10,7 +10,6 @@ import { TaskFilters } from '../components/tasks/TaskFilters';
 import { TaskForm } from '../components/tasks/TaskForm';
 import { useTasks } from '../hooks/useTasks';
 import { useCategories } from '../hooks/useCategories';
-import { debounce } from '../utils/dateUtils';
 
 export default function TasksPage() {
   const [searchParams, setSearchParams] = useSearchParams();
