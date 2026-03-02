@@ -20,7 +20,7 @@ import {
 import { cn } from '../../lib/utils';
 
 const statusOptions = [
-  { value: '', label: 'All Status' },
+  { value: 'all', label: 'All Status' },
   { value: 'PENDING', label: 'Pending' },
   { value: 'IN_PROGRESS', label: 'In Progress' },
   { value: 'COMPLETED', label: 'Completed' },
@@ -28,7 +28,7 @@ const statusOptions = [
 ];
 
 const priorityOptions = [
-  { value: '', label: 'All Priority' },
+  { value: 'all', label: 'All Priority' },
   { value: 'LOW', label: 'Low' },
   { value: 'MEDIUM', label: 'Medium' },
   { value: 'HIGH', label: 'High' },
@@ -36,7 +36,7 @@ const priorityOptions = [
 ];
 
 const dueDateOptions = [
-  { value: '', label: 'All Dates' },
+  { value: 'all', label: 'All Dates' },
   { value: 'today', label: 'Due Today' },
   { value: 'week', label: 'This Week' },
   { value: 'overdue', label: 'Overdue' },
@@ -56,8 +56,8 @@ export const TaskFilters = ({
   isGridView,
   onViewChange,
 }) => {
-  const activeFilterCount = Object.values(filters).filter(
-    (v) => v && v !== '' && v !== 'createdAt' && v !== 'desc'
+  const activeFilterCount = Object.entries(filters).filter(
+    ([key, v]) => v && v !== '' && v !== 'all' && key !== 'sort' && key !== 'order' && key !== 'page' && key !== 'size'
   ).length;
 
   const handleClearFilters = () => {
@@ -70,6 +70,15 @@ export const TaskFilters = ({
       sort: 'createdAt',
       order: 'desc',
     });
+  };
+
+  const handleSelectChange = (key, value) => {
+    const actualValue = value === 'all' ? '' : value;
+    onFilterChange({ ...filters, [key]: actualValue });
+  };
+
+  const getSelectValue = (value) => {
+    return value || 'all';
   };
 
   return (
@@ -151,10 +160,8 @@ export const TaskFilters = ({
               {statusOptions.map((option) => (
                 <DropdownMenuCheckboxItem
                   key={option.value}
-                  checked={filters.status === option.value}
-                  onCheckedChange={() => 
-                    onFilterChange({ ...filters, status: option.value })
-                  }
+                  checked={getSelectValue(filters.status) === option.value}
+                  onCheckedChange={() => handleSelectChange('status', option.value)}
                 >
                   {option.label}
                 </DropdownMenuCheckboxItem>
@@ -164,10 +171,8 @@ export const TaskFilters = ({
               {priorityOptions.map((option) => (
                 <DropdownMenuCheckboxItem
                   key={option.value}
-                  checked={filters.priority === option.value}
-                  onCheckedChange={() => 
-                    onFilterChange({ ...filters, priority: option.value })
-                  }
+                  checked={getSelectValue(filters.priority) === option.value}
+                  onCheckedChange={() => handleSelectChange('priority', option.value)}
                 >
                   {option.label}
                 </DropdownMenuCheckboxItem>
@@ -181,8 +186,8 @@ export const TaskFilters = ({
       <div className="hidden sm:flex flex-wrap items-center gap-2">
         {/* Status Filter */}
         <Select
-          value={filters.status || ''}
-          onValueChange={(value) => onFilterChange({ ...filters, status: value })}
+          value={getSelectValue(filters.status)}
+          onValueChange={(value) => handleSelectChange('status', value)}
         >
           <SelectTrigger 
             className="w-36 h-9 bg-slate-800 border-slate-700 text-white"
@@ -192,7 +197,7 @@ export const TaskFilters = ({
           </SelectTrigger>
           <SelectContent className="bg-slate-800 border-slate-700 text-white">
             {statusOptions.map((option) => (
-              <SelectItem key={option.value} value={option.value || 'all'}>
+              <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
             ))}
@@ -201,8 +206,8 @@ export const TaskFilters = ({
 
         {/* Priority Filter */}
         <Select
-          value={filters.priority || ''}
-          onValueChange={(value) => onFilterChange({ ...filters, priority: value })}
+          value={getSelectValue(filters.priority)}
+          onValueChange={(value) => handleSelectChange('priority', value)}
         >
           <SelectTrigger 
             className="w-36 h-9 bg-slate-800 border-slate-700 text-white"
@@ -212,7 +217,7 @@ export const TaskFilters = ({
           </SelectTrigger>
           <SelectContent className="bg-slate-800 border-slate-700 text-white">
             {priorityOptions.map((option) => (
-              <SelectItem key={option.value} value={option.value || 'all'}>
+              <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
             ))}
@@ -221,8 +226,8 @@ export const TaskFilters = ({
 
         {/* Category Filter */}
         <Select
-          value={filters.category_id || ''}
-          onValueChange={(value) => onFilterChange({ ...filters, category_id: value })}
+          value={filters.category_id || 'all'}
+          onValueChange={(value) => handleSelectChange('category_id', value)}
         >
           <SelectTrigger 
             className="w-40 h-9 bg-slate-800 border-slate-700 text-white"
@@ -231,7 +236,7 @@ export const TaskFilters = ({
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
           <SelectContent className="bg-slate-800 border-slate-700 text-white">
-            <SelectItem value="">All Categories</SelectItem>
+            <SelectItem value="all">All Categories</SelectItem>
             {categories.map((category) => (
               <SelectItem key={category.id} value={category.id}>
                 <div className="flex items-center gap-2">
@@ -248,8 +253,8 @@ export const TaskFilters = ({
 
         {/* Due Date Filter */}
         <Select
-          value={filters.due_date || ''}
-          onValueChange={(value) => onFilterChange({ ...filters, due_date: value })}
+          value={getSelectValue(filters.due_date)}
+          onValueChange={(value) => handleSelectChange('due_date', value)}
         >
           <SelectTrigger 
             className="w-36 h-9 bg-slate-800 border-slate-700 text-white"
@@ -259,7 +264,7 @@ export const TaskFilters = ({
           </SelectTrigger>
           <SelectContent className="bg-slate-800 border-slate-700 text-white">
             {dueDateOptions.map((option) => (
-              <SelectItem key={option.value} value={option.value || 'all'}>
+              <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
             ))}
