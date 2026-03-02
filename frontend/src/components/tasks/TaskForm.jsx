@@ -198,7 +198,10 @@ export const TaskForm = ({ isOpen, onClose, task = null }) => {
               name="category_id"
               control={control}
               render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
+                <Select 
+                  value={field.value || 'none'} 
+                  onValueChange={(value) => field.onChange(value === 'none' ? '' : value)}
+                >
                   <SelectTrigger 
                     className="bg-slate-800 border-slate-700 text-white"
                     data-testid="task-category-select"
@@ -206,7 +209,7 @@ export const TaskForm = ({ isOpen, onClose, task = null }) => {
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                   <SelectContent className="bg-slate-800 border-slate-700 text-white">
-                    <SelectItem value="">None</SelectItem>
+                    <SelectItem value="none">None</SelectItem>
                     {categories?.map((category) => (
                       <SelectItem key={category.id} value={category.id}>
                         <div className="flex items-center gap-2">
